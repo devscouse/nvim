@@ -20,10 +20,38 @@ return {
                 "ruff_lsp",
             }
         }
+        local on_attach = function(client, bufnr)
+            if client.name == 'ruff_lsp' then
+                -- Disable hover in favor of Pyright
+                client.server_capabilities.hoverProvider = false
+            end
+        end
+
         require("lspconfig").pyright.setup {
             capabilities = capabilities,
+            settings = {
+                pyright = {
+                    -- Using Ruff's import organizer
+                    disableOrganizeImports = true,
+                },
+                python = {
+                    analysis = {
+                        -- Ignore all files for analysis to exclusively use Ruff for linting
+                        ignore = { '*' },
+                    },
+                },
+            },
+        }
+        require("lspconfig").ruff_lsp.setup {
+            on_attach = on_attach,
+            init_options = {
+                settings = {
+                    args = { }
+                }
+            }
         }
 
+        -- Configure auto-completion
         local has_words_before = function()
             unpack = unpack or table.unpack
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))
