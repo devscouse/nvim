@@ -6,4 +6,5 @@ return {
             require('mini.pairs').setup({})
         end,
     },
+    {"eandrju/cellular-automaton.nvim"},
 }
