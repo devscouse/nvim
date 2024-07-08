@@ -1,7 +1,8 @@
+require('rweb.lazy')
 require('rweb.remap')
 require('rweb.set')
-require('rweb.lazy')
 
+vim.cmd [[colorscheme kanagawa-dragon]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
   vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
