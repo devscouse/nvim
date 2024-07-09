@@ -4,6 +4,9 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
+        'hrsh7th/cmp-buffer',
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
@@ -26,6 +29,8 @@ return {
                 client.server_capabilities.hoverProvider = false
             end
         end
+
+        require('luasnip').setup {}
 
         require("lspconfig").pyright.setup {
             capabilities = capabilities,
@@ -61,14 +66,12 @@ return {
         local cmp = require('cmp')
         local luasnip = require('luasnip')
 
+        -- Set up completion plugin
         cmp.setup({
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end
-            },
-            completion = {
-                autocomplete = false
             },
             mapping = cmp.mapping.preset.insert ({
                 ["<Tab>"] = cmp.mapping(function(fallback)
@@ -94,10 +97,15 @@ return {
                 ["<c-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select=true }),
             }),
-            sources = {
+            sources = cmp.config.sources(
+            {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
+            },
+            {
+                { name = "buffer" },
             }
+            )
         })
 
     end

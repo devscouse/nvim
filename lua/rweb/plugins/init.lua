@@ -7,4 +7,12 @@ return {
         end,
     },
     {"eandrju/cellular-automaton.nvim"},
+    {
+        "theprimeagen/vim-be-good",
+
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+
+    },
 }
