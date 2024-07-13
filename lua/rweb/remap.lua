@@ -15,10 +15,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
@@ -38,9 +38,6 @@ vim.keymap.set(
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>')
 vim.keymap.set('t', '<Esc>', "<C-\\><C-n>")
 vim.keymap.set('t', '<C-w>', "<C-\\><C-n><C-w>")
-
--- minimize terminal split
-vim.keymap.set('n', '<C-g>', "3<C-w>_")
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Got to previous diagnostic" })

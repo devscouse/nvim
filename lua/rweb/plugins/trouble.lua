@@ -1,37 +1,34 @@
 return {
   "folke/trouble.nvim",
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
   cmd = "Trouble",
   keys = {
     {
-      "<leader>xx",
+      "<leader>t",
       "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Diagnostics (Trouble)",
+      desc = "[T]rouble diagnostics",
     },
     {
-      "<leader>xX",
+      "<leader>tb",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "Buffer Diagnostics (Trouble)",
+      desc = "[T]rouble current [B]uffer diagnostics",
     },
     {
-      "<leader>cs",
-      "<cmd>Trouble symbols toggle focus=false<cr>",
-      desc = "Symbols (Trouble)",
-    },
-    {
-      "<leader>cl",
-      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      desc = "LSP Definitions / references / ... (Trouble)",
-    },
-    {
-      "<leader>xL",
-      "<cmd>Trouble loclist toggle<cr>",
-      desc = "Location List (Trouble)",
-    },
-    {
-      "<leader>xQ",
+      "<leader>tqf",
       "<cmd>Trouble qflist toggle<cr>",
-      desc = "Quickfix List (Trouble)",
+      desc = "[T]rouble [Q]uick [F]ix list",
     },
   },
+  config = function()
+    require('trouble').setup()
+    vim.keymap.set("n", "]t", function()
+        require('trouble').next({ skip_groups = true, jump = true })
+      end,
+      { desc = "[T]rouble next selection" }
+    )
+    vim.keymap.set("n", "[t", function()
+        require('trouble').prev({ skip_groups = true, jump = true })
+      end,
+      { desc = "[T]rouble previous selection" }
+    )
+  end,
 }
