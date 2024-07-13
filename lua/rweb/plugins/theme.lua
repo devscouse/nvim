@@ -46,5 +46,10 @@ return {
         priority = 1000,
         lazy = true,
     },
-    { "nvim-tree/nvim-web-devicons", lazy = true }
+    {
+        'folke/tokyonight.nvim',
+        priority=1000,
+        lazy = true,
+    },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
 }

@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("i", "jk", "<Esc>")
 
 -- Move visual blocks around together
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -40,3 +41,9 @@ vim.keymap.set('t', '<C-w>', "<C-\\><C-n><C-w>")
 
 -- minimize terminal split
 vim.keymap.set('n', '<C-g>', "3<C-w>_")
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Got to previous diagnostic" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Got to next diagnostic" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
