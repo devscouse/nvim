@@ -21,14 +21,6 @@ return {
             local sline = require 'mini.statusline'
             sline.setup { use_icons = vim.g.have_nerd_font }
             sline.section_location = function() return '%2l:%-2v' end
-
-            -- Animate common vim motions
-            require('mini.animate').setup()
-
-            -- Extend f, F, t, T to work on multiple lines
-            --
-            -- Repeat hump by pressing f, F, t, T again
-            require('mini.jump').setup()
         end,
     },
     { "eandrju/cellular-automaton.nvim" },
