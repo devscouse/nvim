@@ -18,12 +18,14 @@ return {
 
         require('telescope').setup {
             defaults = {
-                layout_strategy = 'horizontal',
+                layout_strategy = 'flex',
                 layout_config = {
                     height = 0.95,
                     width = 0.95,
-                    prompt_position = 'top',
-                    preview_width = 0.7,
+                    prompt_position = 'bottom',
+                    flip_columns = 100,
+                    horizontal = { preview_width = 0.7, preview_cutoff = 60 },
+                    vertical = { preview_height = 0.5, preview_cutoff = 20 },
                 },
             },
             pickers = {
