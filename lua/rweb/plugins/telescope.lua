@@ -3,6 +3,7 @@ return {
     tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
+        { "<leader>fb",  "<cmd>Telescope buffers<cr>",     desc = "[F]ind [B]uffers" },
         { "<leader>ff",  "<cmd>Telescope find_files<cr>",  desc = "[F]ind [F]iles" },
         { "<leader>fg",  "<cmd>Telescope live_grep<cr>",   desc = "[F]ind by [G]rep" },
         { "<leader>fk",  "<cmd>Telescope keymaps<cr>",     desc = "[F]ind [K]eymaps" },
