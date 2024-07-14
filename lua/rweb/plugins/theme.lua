@@ -23,9 +23,9 @@ return {
                     TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
                     TelescopePreviewNormal = { bg = theme.ui.bg_dim },
                     TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-                    NormalFloat = { bg = "none" },
-                    FloatBorder = { bg = "none" },
-                    FloatTitle = { bg = "none" },
+                    -- NormalFloat = { bg = "none" },
+                    -- FloatBorder = { bg = "none" },
+                    -- FloatTitle = { bg = "none" },
 
                     -- Save an hlgroup with dark background and dimmed foreground
                     -- so that you can use it where your still want darker windows.
@@ -48,7 +48,7 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-        priority=1000,
+        priority = 1000,
         lazy = true,
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },

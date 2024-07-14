@@ -1,5 +1,8 @@
 vim.opt.guicursor = ""
 vim.g.have_nerd_font = true
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netr_winsize = 25
 
 -- Show the mode (e.g. insert)
 vim.opt.showmode = true
