@@ -35,6 +35,8 @@ return {
                     },
                 },
             },
+            tsserver = {
+            },
         }
 
         require('mason').setup()

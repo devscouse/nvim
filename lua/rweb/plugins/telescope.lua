@@ -33,11 +33,11 @@ return {
                 find_files = {
                     mappings = {
                         i = {
-                            ["<Tab>"] = {
+                            ["<S-Tab>"] = {
                                 actions.move_selection_next, type = "action",
                                 opts = { nowait = true, silent = true }
                             },
-                            ["<S-Tab>"] = {
+                            ["<Tab>"] = {
                                 actions.move_selection_previous, type = "action",
                                 opts = { nowait = true, silent = true }
                             },

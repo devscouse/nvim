@@ -9,7 +9,7 @@ vim.cmd [[colorscheme kanagawa]]
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local rweb_group = augroup('RWebGroup', {})
+local rweb_group = augroup('RWebGroup', { clear = true })
 local highlight_group = augroup('YankHighlight', { clear = true })
 
 autocmd('TextYankPost', {
@@ -54,7 +54,7 @@ autocmd('LspAttach', {
         -- This is not go to definition, this is go to declaration
         map('gD', vim.lsp.buf.declaration, "Go to Declaration")
 
-        local opts = { buffer = e.buf }
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        local opts = { buffer = e.buf, silent = true, desc = "LSP: Signature Help" }
+        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     end
 })

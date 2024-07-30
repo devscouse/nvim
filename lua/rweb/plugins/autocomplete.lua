@@ -37,18 +37,6 @@ return {
                 ['<C-y>'] = cmp.mapping.confirm { select = true },
                 -- Close the autcomplete window
                 ['<C-e>'] = cmp.mapping.abort(),
-                -- Move to the right of your snippet expansion
-                ['<C-l>'] = cmp.mapping(function()
-                    if luasnip.expanded_or_locally_jumpable() then
-                        luasnip.expand_or_jump()
-                    end
-                end, { 'i', 's' }),
-                -- Move to the left of your snippet expansion
-                ['<C-h>'] = cmp.mapping(function()
-                    if luasnip.locally_jumpable(-1) then
-                        luasnip.jump(-1)
-                    end
-                end, { 'i', 's' }),
             },
             sources = cmp.config.sources(
                 {
