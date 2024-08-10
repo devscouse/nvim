@@ -1,6 +1,6 @@
-require('rweb.lazy')
-require('rweb.remap')
-require('rweb.set')
+require('devscouse.lazy')
+require('devscouse.remap')
+require('devscouse.set')
 
 -- Set the colour theme
 vim.cmd [[colorscheme kanagawa]]
@@ -9,7 +9,7 @@ vim.cmd [[colorscheme kanagawa]]
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local rweb_group = augroup('RWebGroup', { clear = true })
+local devscouse_group = augroup('DevScouseGroup', { clear = true })
 local highlight_group = augroup('YankHighlight', { clear = true })
 
 autocmd('TextYankPost', {
@@ -21,7 +21,7 @@ autocmd('TextYankPost', {
 })
 
 autocmd('LspAttach', {
-    group = rweb_group,
+    group = devscouse_group,
     callback = function(e)
         -- Helper function for creating a mapping for insert mode
         local map = function(keys, func, desc)
