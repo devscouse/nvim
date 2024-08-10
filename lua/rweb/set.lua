@@ -63,7 +63,8 @@ local powershell_options = {
     shellxquote = "",
 }
 
-if not vim.fn.has('macunix') then
+-- Only execute if the system is Windows
+if (vim.fn.has('macunix') == 0) then
     for option, value in pairs(powershell_options) do
         vim.opt[option] = value
     end
