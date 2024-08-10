@@ -50,7 +50,15 @@ return {
                 )
             end,
         })
-        vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>", { desc = "[G]it select left diff" })
-        vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>", { desc = "[G]it select right diff" })
+        vim.keymap.set("n",
+            "<leader>gf",
+            "<cmd>diffget //2<CR>",
+            { desc = "[G]it select left diff" }
+        )
+        vim.keymap.set("n",
+            "<leader>gj",
+            "<cmd>diffget //3<CR>",
+            { desc = "[G]it select right diff" }
+        )
     end
 }
