@@ -44,3 +44,5 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Got to previous di
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Got to next diagnostic" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+
+vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select All' })
