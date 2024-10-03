@@ -3,7 +3,7 @@ require('devscouse.remap')
 require('devscouse.set')
 
 -- Set the colour theme
-vim.cmd [[colorscheme catpuccin]]
+vim.cmd [[colorscheme catppuccin]]
 
 -- Create autocommands
 local augroup = vim.api.nvim_create_augroup

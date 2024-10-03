@@ -22,7 +22,11 @@ return {
             pyright = {
                 settings = {
                     pyright = { disableOrganizeImports = true, },
-                    python = { analysis = { ignore = { "*" } } },
+                    python = {
+                        analysis = {
+                            -- ignore = { "*" }
+                        }
+                    },
                 },
             },
             ruff_lsp = {
