@@ -1,5 +1,5 @@
 require('devscouse.lazy')
-require('devscouse.remap')
+require('devscouse.keymap')
 require('devscouse.set')
 
 -- Set the colour theme
@@ -10,8 +10,9 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 local devscouse_group = augroup('DevScouseGroup', { clear = true })
-local highlight_group = augroup('YankHighlight', { clear = true })
 
+-- Highlight yanked text
+local highlight_group = augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
@@ -58,3 +59,9 @@ autocmd('LspAttach', {
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     end
 })
+
+
+-- Configure snippets
+for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/devscouse/snippets/*.lua", true)) do
+    loadfile(ft_path)()
+end

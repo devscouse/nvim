@@ -17,20 +17,7 @@ return {
             -- - sd'   - [S]urround [D]elete [']quotes
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require('mini.surround').setup()
-
-            local sline = require 'mini.statusline'
-            sline.setup { use_icons = vim.g.have_nerd_font }
-            sline.section_location = function() return '%2l:%-2v' end
         end,
-    },
-    { "eandrju/cellular-automaton.nvim" },
-    {
-        "theprimeagen/vim-be-good",
-
-        dependencies = {
-            "nvim-lua/plenary.nvim"
-        },
-
     },
     {
         "lewis6991/gitsigns.nvim",

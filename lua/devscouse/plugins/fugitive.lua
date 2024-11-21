@@ -32,22 +32,6 @@ return {
                     function() vim.cmd.Git('push') end,
                     get_opts("[G]it [P]ush")
                 )
-
-                -- rebase always
-                vim.keymap.set(
-                    "n",
-                    "<leader>gP",
-                    function() vim.cmd.Git({ 'pull', '--rebase' }) end,
-                    get_opts("[G]it [P]ull")
-                )
-
-                -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-                -- needed if i did not set the branch up correctly
-                vim.keymap.set("n",
-                    "<leader>t",
-                    ":Git push -u origin ",
-                    get_opts("[G]it [T]rack")
-                )
             end,
         })
         vim.keymap.set("n",

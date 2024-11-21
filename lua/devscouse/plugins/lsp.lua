@@ -19,27 +19,23 @@ return {
         capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
         local servers = {
-            pyright = {
-                settings = {
-                    pyright = { disableOrganizeImports = true, },
-                    python = {
-                        analysis = {
-                            -- ignore = { "*" }
-                        }
-                    },
-                },
-            },
-            ruff_lsp = {
-                capabilities = { hoverProvider = false }
+            clangd = {
+                filetypes = { "c", "cpp" },
+                cmd = { "clangd" }
             },
             lua_ls = {
+                filetypes = { "lua" },
                 settings = {
                     Lua = {
                         diagnostics = { globals = { 'vim' } },
                     },
                 },
             },
-            tsserver = {
+            pyright = {
+                filetypes = { "python" },
+            },
+            ts_ls = {
+                filetypes = { "typescript" }
             },
         }
 
@@ -56,6 +52,26 @@ return {
                     require('lspconfig')[server_name].setup(server)
                 end,
             }
+        }
+        local util = require("lspconfig/util")
+        require("lspconfig.configs").pylyzer = {
+            default_config = {
+                name = "pylyzer",
+                cmd = { "pylyzer", "--server" },
+                filetypes = { "python" },
+                root_dir = function(fname)
+                    local root_files = {
+                        "pyproject.toml",
+                        "setup.py",
+                        "setup.cfg",
+                        "requirements.txt",
+                        "Pipfile",
+                    }
+                    return util.root_pattern(unpack(root_files))(fname)
+                        or util.find_git_ancestor(fname)
+                        or util.path.dirname(fname)
+                end,
+            },
         }
     end
 }

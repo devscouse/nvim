@@ -1,15 +1,37 @@
 return {
-    "folke/zen-mode.nvim",
-    opts = {
-        window = {
-            width = 90,
-            options = {
-                number = true,
-                relativenumber = true
-            },
-        },
+    {
+        "folke/zen-mode.nvim",
+        config = function()
+            require("zen-mode").setup {
+                window = {
+                    backdrop = 1,
+                    height = 0.9,
+                    width = 0.8,
+                    options = {
+                        number = false,
+                        relativenumber = false,
+                        signcolumn = "no",
+                        list = false,
+                        cursorline = false,
+                    },
+                },
+            }
+
+            require("twilight").setup {
+                context = -1,
+                treesitter = true,
+            }
+            vim.keymap.set("n", "<leader>zz", "<CMD>ZenMode<CR>")
+        end,
     },
-    keys = {
-        { "<leader>zz", "<cmd>ZenMode<CR>" }
-    }
+
+    {
+        "folke/twilight.nvim",
+        config = function()
+            require("twilight").setup {
+                context = -1,
+                treesitter = true,
+            }
+        end,
+    },
 }

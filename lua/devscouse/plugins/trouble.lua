@@ -3,7 +3,7 @@ return {
   cmd = "Trouble",
   keys = {
     {
-      "<leader>t",
+      "<leader>tt",
       "<cmd>Trouble diagnostics toggle<cr>",
       desc = "[T]rouble diagnostics",
     },
