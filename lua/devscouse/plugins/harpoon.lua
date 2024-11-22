@@ -5,7 +5,7 @@ return {
     config = function()
         local harpoon = require("harpoon")
         vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "[H]arpoon [A]dd" })
-        vim.keymap.set("n", "<C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+        vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
             { desc = "[H]arpoon Menu" })
 
         for _, idx in ipairs { 1, 2, 3, 4, 5 } do

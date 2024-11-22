@@ -33,6 +33,15 @@ return {
             },
             pyright = {
                 filetypes = { "python" },
+                settings = {
+                    pyright = {
+                        disableOrganizeImports = true,
+                        useLibraryCodeForTypes = true
+                    },
+                }
+            },
+            ruff = {
+                filetypes = { "python" },
             },
             ts_ls = {
                 filetypes = { "typescript" }
